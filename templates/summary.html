@@ -5,12 +5,24 @@
 <div class="centered-content">
     <div class="centered-text">
         <h1>Great job!</h1>
-        <h2>You made it through the quiz. Here's how you did:</h2>
-        {% for item in popular_constellations %}
-            <a>{{ item.name }}<br></a>
-        {% endfor %}
+        <h2>You made it through the quiz. Here's how you did: {{ score }}/4</h2>
+        <table class="score-table">
+            <thead>
+                <tr>
+                    <th class="name">Star Name</th>
+                    <th class="score">Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for name, score in scoreBoard %}
+                <tr>
+                    <td class="name">{{ name }}</td>
+                    <td class="score">{{ score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-    
     <div class="button-group">
         <button class="start-button" onclick="location.href='/view/1'">START AGAIN</button>
     </div>

@@ -1,15 +1,18 @@
 body, html {
   background-color: black;
 }
+/*GENERAL*/
+.logo_edits{
+  color: white;
+  font-size: 24px;
+}
+.logo_edits:hover {
+  color: white;
+  text-decoration: none;
+}
 
-.welcome-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/hemisphere-boreal.jpg');
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;  
-  background-size: cover;
-  position: relative;
+.brand_color {
+    color: #5B5B5C !important;
 }
 
 .centered-content {
@@ -17,12 +20,18 @@ body, html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80vh; 
+  height: 70vh;
   text-align: center;
 }
 
+.centered-contented {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 0 0;
+}
 .centered-text {
-  font-size: 24px; 
+  font-size: 24px;
   margin-bottom: 20px;
   color:white;
 }
@@ -30,24 +39,31 @@ body, html {
 .button-group {
   display: flex;
   justify-content: center;
-  gap: 20px; 
+  gap: 20px;
+  padding:5px;
 }
-
 .start-button {
   padding: 10px 20px;
   font-size: 16px;
   color: white;
-  background-color: #007bff;
+  background-color: #8075FF;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
 }
 
 .start-button:hover {
-  background-color: orange;
+  background-color: white;
 }
-
-
+.lower{
+  padding-top:20px
+}
+/*LAYOUT*/
+.navbar-star-icon {
+  background-color: #8075FF;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 24px; /* Adjust the size of the star */
+}
 /* Define a CSS class for the background image */
 .bg-image {
   /* Set background image */
@@ -61,53 +77,156 @@ body, html {
   /* Set min height to ensure image covers the whole page */
   min-height: 100vh;
 }
-
 .body-container {
   margin: 50px;
   color: white;
 }
-
-.const-title {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-.const-info {
-  margin-bottom: 30px;
-}
-.const-poster {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 50px;
-}
-
 .navbar-custom {
   background-color: black;
 }
+#navbarNavAltMarkup .nav-link {
+    color: #BDBDBE;  /* Specific color */
+}
 
-canvas {
-  background: white;
-  border: 2px solid red;
-  cursor: crosshair;
+.navbar-nav .nav-link {
+    margin-right: 40px; /* Adds space between the links */
+    color: #007bff; /* Example blue color */
+}
+.navbar-nav .nav-link:last-child {
+    margin-right: 0; /* Removes margin on the right for the last link */
+}
+
+/*WELCOME*/
+.fbh {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 9vh;
+}
+.fbs {
+  font-family: 'Mulish', sans-serif;
+  font-size: 2.5vh;
+}
+.fbsb{
+  padding: 10px 60px 10px 60px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  color: black;
+  font-size: 3vh;
+}
+.white{
+  color: white;
+}
+.back{
+  background-color: #adadadff;
+  color: #303030;
+}
+/*VIEW*/
+.vh{
+  font-size: 6vh;
+  font-family: 'Space Mono', monospace;
+  font-weight: 900;
+
+}
+.vsh{
+  font-family: 'Mulish', sans-serif;
+  font-size: 3vh;
+  color: white;
+}
+.vsc{
+  font-family: 'Mulish', sans-serif;
+  font-size: 2vh;
+  color: #adadad;
+}
+.const-poster {
+  margin-top: 4vh;
+  max-width: 100%;
   margin-bottom: 50px;
 }
 
-.learn-img {
-  width: 600px;
-  height: 400px;
-  margin-bottom: 50px;
+/*LEARN*/
+.learn_img {
+  max-height: 400px;  /* Maximum height */
+  max-width: 100%;    /* Maximum width to maintain aspect ratio */
+  height: auto;       /* Maintain aspect ratio */
+  width: auto;        /* Maintain aspect ratio */
 }
 
-.learn-image {
-  max-width: 500px; /* Set maximum width for the images */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Ensure images are displayed as blocks */
-  margin-bottom: 50px;
+
+.lh{
+  font-family: 'Space Mono', monospace;
+  font-weight: 900;
+}
+.lsh{
+  color:
+}
+/*QUIZ PAGE*/
+#canvas-container {
+    padding-bottom: 10px;
 }
 
-.navbar-star-icon {
-  background-color: #8075FF;
-  padding: 10px;
-  margin-right: 10px;
-  font-size: 24px; /* Adjust the size of the star */
+.qh{
+  font-size: 4.3vh;
+  font-family: 'Space Mono', monospace;
+  font-weight: 900;
+  text-align: center;
+
+}
+.qinstr {
+  display: flex;           /* Establishes this div as a flex container */
+  align-items: center;     /* Vertically centers the content in the container */
+  justify-content: flex-start; /* Horizontally aligns content to the start; change as needed */
+  padding: 25px;
+  margin-top: 20px;
+  background-color: #eeff41;
+  color: #303030;
+}
+.qnote {
+  display: flex;           /* Establishes this div as a flex container */
+  padding: 30px;
+  margin-top: 20px;
+  background-color: #303030ff;
+  color: white;
+}
+.qbutton{
+  margin-top: 20px;
+}
+.material-symbols-outlined {
+    color: black; /* Outline color */
+    text-shadow:white; /* Fill effect */
+    font-size: 24px; /* Adjust size as needed */
+    transform: scaleX(-1);
+}
+.button-group.vertical {
+  display: flex;
+  flex-direction: column;
+}
+.fbu{
+  padding: 10px 60px 10px 60px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  color: black;
+  font-size: 3vh;
+}
+/*SUMMARY PAGE*/
+
+.score-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.score-table th, .score-table td {
+    padding: 8px;
+    text-align: left;
+}
+.score-table th {
+    background-color: #f4f4f4;
+    color: black;
+}
+.score-table td {
+    border-bottom: 1px solid #ddd;
+}
+.score-table .name {
+    text-align: left;
+}
+.score-table .score {
+    text-align: right;
 }

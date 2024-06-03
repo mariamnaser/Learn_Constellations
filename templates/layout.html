@@ -8,24 +8,27 @@
 
     <!-- jQuery -->
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>  
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
 
-    <title>Let's Learn Constellations 🌠 </title>
+    <!--FONTS / ICONS-->
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <title>Let's Learn Constellations ✧˖°</title>
 </head>
 <body class="bg-image">
-    
+
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
     <div class="container-fluid"> <!-- Changed to container-fluid for full width -->
         <!-- Star icon using div instead of span -->
         <div class="navbar-brand navbar-star-icon">
-            <div style="font-size: 24px;">&#9733;</div> <!-- Star icon in a div -->
+        <div class="logo_edits"><a class="logo_edits" href="/hello">★彡</a></div> <!-- Star icon in a div -->
         </div>
-        <a class="navbar-brand" href="/hello">Let's Learn Constellations 🌠</a>
+        <a class="navbar-brand brand_color" href="/hello">Let's Learn Constellations ✧˖°</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,13 +36,12 @@
             <div class="navbar-nav ml-auto">
                 <a class="nav-link" href="/learn/1">Constellations</a>
                 <a class="nav-link" href="/quiz/1">Constellation quiz</a>
-                <a class="nav-link quiz-summary-link" href="/summary">Quiz Summary</a>
             </div>
         </div>
     </div>
 </nav>
 
-<div class="body-container">
+<div class="container">
     {% block content %}
     {% endblock %}
 </div>
@@ -52,5 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
