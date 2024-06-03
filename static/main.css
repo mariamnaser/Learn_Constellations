@@ -1,0 +1,113 @@
+body, html {
+  background-color: black;
+}
+
+.welcome-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/hemisphere-boreal.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+  position: relative;
+}
+
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh; 
+  text-align: center;
+}
+
+.centered-text {
+  font-size: 24px; 
+  margin-bottom: 20px;
+  color:white;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px; 
+}
+
+.start-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: orange;
+}
+
+
+/* Define a CSS class for the background image */
+.bg-image {
+  /* Set background image */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/hemisphere-boreal.jpg');
+  /* Set background size */
+  background-size: cover;
+  /* Set background position */
+  background-position: center;
+  /* Set background repeat */
+  background-repeat: no-repeat;
+  /* Set min height to ensure image covers the whole page */
+  min-height: 100vh;
+}
+
+.body-container {
+  margin: 50px;
+  color: white;
+}
+
+.const-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.const-info {
+  margin-bottom: 30px;
+}
+.const-poster {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.navbar-custom {
+  background-color: black;
+}
+
+canvas {
+  background: white;
+  border: 2px solid red;
+  cursor: crosshair;
+  margin-bottom: 50px;
+}
+
+.learn-img {
+  width: 600px;
+  height: 400px;
+  margin-bottom: 50px;
+}
+
+.learn-image {
+  max-width: 500px; /* Set maximum width for the images */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure images are displayed as blocks */
+  margin-bottom: 50px;
+}
+
+.navbar-star-icon {
+  background-color: #8075FF;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 24px; /* Adjust the size of the star */
+}

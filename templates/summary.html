@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="centered-content">
+    <div class="centered-text">
+        <h1>Great job!</h1>
+        <h2>You made it through the quiz. Here's how you did:</h2>
+        {% for item in popular_constellations %}
+            <a>{{ item.name }}<br></a>
+        {% endfor %}
+    </div>
+    
+    <div class="button-group">
+        <button class="start-button" onclick="location.href='/view/1'">START AGAIN</button>
+    </div>
+</div>
+
+{% endblock %}

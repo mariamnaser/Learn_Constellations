@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="body-container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ url_for('static', filename='images/' + item.image)}}" alt="{{ item.name}}" class="img-fluid const-poster">
+        </div>
+        <div class="col-md-8">
+            <!-- Constellation Name -->
+            <h1 class="const-title">{{ item['name'] }}</h1>
+            <!-- Const Info -->
+            <div class="const-info">
+                <h3>Season</h3>
+                <p>{{ item['season'] }}</p>
+            </div>
+            <div class="const-info">
+                <h3>Hemisphere</h3>
+                <p>{{ item['hemisphere'] }}</p>
+            </div>
+            <div class="const-info">
+                <h3>Number of Stars</h3>
+                <p>{{ item['number of stars'] }}</p>
+            </div>
+            <div class="const-info">
+                <h3>Brightest Star</h3>
+                <p>{{ item['brightest star'] }}</p>
+            </div>
+            <div class="const-info">
+                <h3>Characteristics</h3>
+                <p>{{ item['characteristics'] }}</p>
+            </div>
+            <div class="const-info">
+                <h3>Namesake</h3>
+                <p>{{ item['namesake'] }}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="button-group">
+        <button class="start-button" onclick="location.href='/learn/{{ item.id }}'">Learn to spot {{ item.name }} in the sky</button>
+    </div>
+
+</div>
+
+{% endblock %}

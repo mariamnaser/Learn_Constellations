@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="body-container">
+
+    <div class="text-center">
+      <h1>Test your knowledge on {{ item['name'] }}</h1>
+      <b>This is the quiz page.</b>
+      <p>You are connecting so many dots rn it's crazy<p>
+      </div>
+
+  <div class="container">
+    <h3 class="text-center my-4">Interactive Canvas</h3>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <canvas id="myCanvas" width="600" height="400"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get the canvas element
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+
+      // Array to store points
+      var points = [];
+
+      // Function to draw a point
+      function drawPoint(x, y) {
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "red";
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      // Function to draw line between two points
+      function drawLine(p1, p2) {
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.strokeStyle = "lightblue";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.closePath();
+      }
+
+      // Event listener for canvas click
+      canvas.addEventListener("click", function (event) {
+        var rect = canvas.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+
+        points.push({ x: x, y: y });
+
+        drawPoint(x, y);
+
+        if (points.length === 2) {
+          drawLine(points[0], points[1]);
+          points = []; // Reset points array after drawing line
+        }
+      });
+    });
+  </script>
+
+
+  <!-- BUTTON TO NEXT -->
+  {% if item.id < 5 %}
+  <div class="button-group">
+      <button class="start-button" onclick="location.href='/view/{{ item.id +1 }}'">Next constellation</button>
+  </div>
+  {% else %}
+  <div class="button-group">
+      <button class="start-button" onclick="location.href='/summary'">View results!</button>
+  </div>
+  {% endif %}
+</div>
+</div>
+
+{% endblock %}
