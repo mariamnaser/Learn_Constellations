@@ -18,7 +18,7 @@ popular_constellations = [
         'image': '/view/UrsaMajor.png',
         'imagel': '/learn/UrsaMajor.png',
         'imageq': '/quiz/UrsaMajor.png',
-        'key':' Relation to Polars & bear conslation',
+        'key':' Relation to Polaris & bear conslation',
         'namesake': 'The Big Dipper is named after its resemblance to a large ladle or dipper. The word "dipper" comes from the Old English word "dyppan," which means "to dip." The word "ladle" comes from the Old English word "hlædel," which means "a vessel for drawing out liquid." The Big Dipper is also known as the Plough in the United Kingdom and Ireland.',
         'points': [[606,430],[673,341],[465,366],[477,273],[402,199],[352,122],[215,95],[241,468],[90,324],[542,73],[823,53],[880,260],[823,458]],
         'answers': [[1,2],[0,3],[0,3],[1,2,4],[3,5],[4,6],[5],[],[],[],[],[],[]],
@@ -34,7 +34,7 @@ popular_constellations = [
         'image': '/view/UrsaMinor.png',
         'imagel': '/learn/UrsaMinor.png',
         'imageq': '/quiz/UrsaMinor.png',
-        'key':'The Belt',
+        'key':'Relation to Polaris & Little Bear',
         'namesake': 'The Little Dipper is named after its resemblance to a small ladle or dipper. The word "dipper" comes from the Old English word "dyppan," which means "to dip." The word "ladle" comes from the Old English word "hlædel," which means "a vessel for drawing out liquid." The Little Dipper is also known as the Little Bear in Latin.',
         'points': [[716,363],[658,268],[542,401],[528,306],[384,298],[255,194],[180,103],[241,468],[90,324],[542,73],[823,53],[880,260],[823,458]],
         'answers': [[1,2],[0,3],[0,3],[1,2,4],[3,5],[4,6],[5],[],[],[],[],[],[]],
@@ -51,7 +51,7 @@ popular_constellations = [
         'imagel': '/learn/Cygnus.png',
         'imageq': '/quiz/Cygnus.png',
         'namesake': 'Cygnus is named after the Latin word for swan. In Greek mythology, Cygnus is associated with several myths, including the story of Zeus and Leda. According to legend, Zeus transformed himself into a swan to seduce Leda, the queen of Sparta. The union between Zeus and Leda produced several children, including Helen of Troy and the twins Castor and Pollux. Cygnus is also associated with the story of Orpheus, a legendary musician who was transformed into a swan after his death.',
-        'key':'The Belt',
+        'key':'Near symmetry +, and bird like wings',
         'points': [[295, 323],[422,282],[536,228],[617,205],[404,170],[351,142],[337,115],[482,374],[472,444],[241,468],[90,324],[542,73],[823,53],[880,260],[823,458]],
         'answers': [[1],[0,2,7,4],[1,3],[2],[1,5],[6,4],[5],[1,8],[7],[],[],[],[],[],[]],
     },
@@ -66,7 +66,7 @@ popular_constellations = [
         'image': '/view/Cassiopeia.png',
         'imagel': '/learn/Cassiopeia.png',
         'imageq': '/quiz/Cassiopeia.png',
-        'key':'The Belt',
+        'key':'Two Triangles or lying lady',
         'namesake': 'Cassiopeia is named after the queen of Aethiopia in Greek mythology. According to legend, Cassiopeia was the wife of King Cepheus and the mother of Princess Andromeda. She was known for her beauty and vanity, which ultimately led to her downfall. Cassiopeia was placed in the sky as a punishment for her arrogance, where she is forced to circle the North Star for eternity. The constellation is also known as the "Celestial W" because of its distinctive shape.',
         'points': [[294,360],[295,226],[402,236],[459,166],[590,174],[90,324],[100,74],[659,41],[823,52],[805,303],[486,349],[639,419],[823,458]],
         'answers': [[1],[0,2],[1,3],[2,4],[3],[],[],[],[],[],[],[],[]],
@@ -80,7 +80,7 @@ def welcome():
         'time': datetime.datetime.now()
     }
     userInput.append(data_dict)
-    print(userInput)
+    #print(userInput)
     return render_template('welcome.html')
 
 # LEARN
@@ -124,7 +124,6 @@ def submit_result():
     name_key = int(json_data['id'])  # Assume 'name' key contains a list with at least one element
     connections = json_data['answer']
     correct[(name_key-1)] = success_value
-    print(type(success_value))
     data_dict = {
         'page': 'submit-result',
         'id': name_key,
@@ -133,7 +132,6 @@ def submit_result():
         'time': datetime.datetime.now()
     }
     userInput.append(data_dict)
-    print
     return jsonify({
         "status": "success",
         "message": "Result processed successfully",
@@ -145,7 +143,6 @@ def summary():
     score = 0
     scoreBoard = []
     scores = []
-    print
     for constellation in popular_constellations:
         percentage = correct[(constellation['id']-1)]
         scores.append(int(percentage))
@@ -154,14 +151,13 @@ def summary():
         score = sum(scores) / len(scores)
     else:
         score = 0
-
-    print(scoreBoard)
     data_dict = {
         'page': 'summary',
         'time': datetime.datetime.now()
     }
     userInput.append(data_dict)
     score = str(int(score))+'%'
+    print(userInput)
     return render_template('summary.html', score=score, scoreBoard=scoreBoard)
 
 @app.route('/hello')

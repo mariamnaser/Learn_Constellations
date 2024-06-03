@@ -24,10 +24,12 @@ function setup() {
 }
 
 function draw() {
+  if (typeof constellationData !== 'undefined') {
     background(imgBig);
     displayPoints();
     displayConnected();
     displayElastic();
+  }
 }
 
 
@@ -125,15 +127,18 @@ function undoLastSelection() {
    console.log("After Undo:", selectedPoints);
 }
 
+
 function calculateAccuracy(correctMatches, input) {
     let holder = 0;
+    let correctPoint = 0;
     let missingPoint = 0;
     let wrongPoint = 0;
     for (let i = 0; i < correctMatches.length; i++) {
         if (Array.isArray(correctMatches[i]) && Array.isArray(input[i])) {
+            // Iterate through input[i] and check if each element is in correctMatches[i]
             input[i].forEach(item => {
                 if (correctMatches[i].includes(item)) {
-                    correctPoint++;
+                    correctPoint++; // Increment correctmark for each found item
                 }
                 else{
                     wrongPoint++;
@@ -156,6 +161,7 @@ function calculateAccuracy(correctMatches, input) {
     }
     return accuracy.toFixed(0);
 }
+
 function buildConnectionMap(points, pointsSelected) {
     const connectionMap = new Array(points.length).fill(null).map(() => []);
     for (let i = 0; i < pointsSelected.length - 1; i++) {
@@ -218,10 +224,16 @@ function findInBoth(answers, linesDrawn) {
     }
     return { blue, orange, red };
 }
+function updateContentsAndShowButton(grade) {
+    // Update the instructional content
+    document.querySelector('.qinstr').innerHTML = "<div class='fbsbg'>Grade: "+grade+"%</div>";
+    document.querySelector('.qnote').innerHTML = "<b>Note:</b>&nbsp; Red: Doesn't exist \n Blue: Correct \n Orange: Missing";
+}
+
 function submitPoints() {
   let connections = buildConnectionMap(points, selectedPoints);
   console.log(connections);
-  let isSuccess = calculateAccuracy([correctMatch], [connections]);
+  let isSuccess = calculateAccuracy(correctMatch, connections);
   selectedPointsuser= selectedPoints;
   let dl = drawLines(selectedPoints);
   let draw = findInBoth(correctMatch,dl);
@@ -230,6 +242,8 @@ function submitPoints() {
   wrong = draw.red;
   let currentId = consl;
   interactionEnabled = false;
+  console.log(isSuccess);
+  updateContentsAndShowButton(isSuccess);
   //Reset game state
   moves = 0;
   selectedPoints = [];
@@ -249,17 +263,23 @@ function submitPoints() {
     .then(data => {
         console.log('Response from server:', data.message);
         if (data.status === "success") {
-            currentId++;
-            // Redirect after 5 seconds
-            setTimeout(() => {
-                if (currentId < 5) {
-                    window.location.href = `/view/${currentId}`;
-                } else {
-                    window.location.href = '/summary';
+          var nextButton = document.getElementById('butt-Next');
+          var submitButton = document.getElementById('butt-Submit');
+          if (nextButton.style.display === 'none') {
+              nextButton.style.display = 'block';
+              submitButton.style.display = 'none';
+          }
+          currentId++;
+          if (nextButton) {
+              nextButton.addEventListener('click', function() {
+                if (currentId<5){
+                   window.location.href = `/view/${currentId}`;
                 }
-            }, 3000);
-
-
+                else {
+                  window.location.href = '/summary';
+                }
+            });
+          }
       } else {
         // Handle errors or unsuccessful attempts here
         console.error('Failed to submit results:', data.message);

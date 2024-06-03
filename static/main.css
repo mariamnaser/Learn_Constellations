@@ -114,8 +114,22 @@ body, html {
   color: black;
   font-size: 3vh;
 }
+.fbsbg{
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  color: black;
+  font-size: 2vh;
+}
 .white{
   color: white;
+}
+.fbsbs{
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  color: black;
+  font-size: 3vh;
+  color: white;
+  padding-left: 5px;
 }
 .back{
   background-color: #adadadff;
