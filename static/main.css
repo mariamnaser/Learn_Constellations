@@ -10,11 +10,9 @@ body, html {
   color: white;
   text-decoration: none;
 }
-
 .brand_color {
     color: #5B5B5C !important;
 }
-
 .centered-content {
   display: flex;
   flex-direction: column;
@@ -23,7 +21,11 @@ body, html {
   height: 70vh;
   text-align: center;
 }
-
+/* Specific vertical centering applied only when 'vert' class is also present */
+.centered-content.vert {
+  justify-content: center;
+  height: 70vh; /* or 100vh if you want it to take the full viewport height */
+}
 .centered-contented {
   display: flex;
   align-items: center;
@@ -35,7 +37,6 @@ body, html {
   margin-bottom: 20px;
   color:white;
 }
-
 .button-group {
   display: flex;
   justify-content: center;
@@ -50,13 +51,13 @@ body, html {
   border: none;
   cursor: pointer;
 }
-
 .start-button:hover {
   background-color: white;
 }
 .lower{
   padding-top:20px
 }
+
 /*LAYOUT*/
 .navbar-star-icon {
   background-color: #8075FF;
@@ -67,7 +68,8 @@ body, html {
 /* Define a CSS class for the background image */
 .bg-image {
   /* Set background image */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/hemisphere-boreal.jpg');
+  background-color: black;
+  /*background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/hemisphere-boreal.jpg');/*
   /* Set background size */
   background-size: cover;
   /* Set background position */
@@ -78,7 +80,6 @@ body, html {
   min-height: 100vh;
 }
 .body-container {
-  margin: 50px;
   color: white;
 }
 .navbar-custom {
@@ -153,8 +154,10 @@ body, html {
 
 
 .lh{
+  padding-top: 50px;
   font-family: 'Space Mono', monospace;
   font-weight: 900;
+  font-size: 7vh;
 }
 .lsh{
   color:
@@ -208,7 +211,17 @@ body, html {
   font-size: 3vh;
 }
 /*SUMMARY PAGE*/
-
+.sh{
+  text-align: left;
+  font-size: 6vh;
+  font-family: 'Space Mono', monospace;
+  font-weight: 900;
+}
+.ssc{
+  font-family: 'Mulish', sans-serif;
+  font-size: 3vh;
+  color: #adadad;
+}
 .score-table {
     width: 100%;
     border-collapse: collapse;
@@ -218,7 +231,7 @@ body, html {
     text-align: left;
 }
 .score-table th {
-    background-color: #f4f4f4;
+    background-color: white;
     color: black;
 }
 .score-table td {

@@ -3,9 +3,16 @@
 {% block content %}
 
 <div class="centered-content">
-    <div class="centered-text">
-        <h1>Great job!</h1>
-        <h2>You made it through the quiz. Here's how you did: {{ score }}/4</h2>
+    <div class="centered-text container">
+        <div class="const-title sh row">Great job!</div>
+        <div class="ssc row">You made it through the quiz. Here are your results: {{ score }}</div>
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-6 center">
+            here
+          </div>
+          <div class="col-3"></div>
+        </div>
         <table class="score-table">
             <thead>
                 <tr>
@@ -24,7 +31,7 @@
         </table>
     </div>
     <div class="button-group">
-        <button class="start-button" onclick="location.href='/view/1'">START AGAIN</button>
+        <button class="start-button" onclick="location.href='/hello'">START AGAIN</button>
     </div>
 </div>
 

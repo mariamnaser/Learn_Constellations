@@ -16,15 +16,23 @@
         <span class="material-symbols-outlined">arrow_selector_tool</span>Use your cursor to connect stars
       </div>
       <div class="container qnote">
-        <b>Note:</b> Find his body, you don’t need to find his arms.
+        <b>Note:</b>&nbsp;  Find his body, you don’t need to find his arms.
       </div>
       <div class="button-group qbutton vertical">
         <button id="butt-Undo" class="row btn btn-light fbu">Undo</button>
-        <button id="butt-Submit" class="row btn start-button fbsb">Submit</button>
+        <button id="butt-Submit" class="row btn start-button fbsb" onclick="submitQuiz()">Submit</button>
       </div>
+      <!-- Placeholder for the message -->
+      <div id="submitMessage" style="display: none;" class="alert alert-info mt-3"></div>
   </div>
   <div class="col-md-9">
     <div id="canvas-container"></div>
   </div>
 </div>
+<script>
+function submitQuiz() {
+    document.getElementById('submitMessage').style.display = 'block';  
+    document.getElementById('submitMessage').innerHTML = 'Going to next constellation...'; 
+}
+</script>
 {% endblock %}

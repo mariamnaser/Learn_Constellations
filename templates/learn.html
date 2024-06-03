@@ -3,26 +3,24 @@
 {% block content %}
 <div class="body-container centered-content">
   <div class="row">
-    <div class="">
-      <h1 class="const-title lh">Learn to spot {{ item['name'] }}</h1>
+    <div class="col-12 tit">
+      <br>
+      <div class="lh">Learn to spot {{ item['name'] }}</div>
     </div>
   </div>
 
   <div class="row">
     <div class="const-info vsc">
-      <p>The key things to keep in mind when looking for {{ item.name }} in the night sky are: <span class="white">{ item.key }}</span></p>
+      <p>The key things to keep in mind when looking for {{ item.name }} in the night sky are: <span class="white">{{ item.key }}</span></p>
     </div>
   </div>
 
   <div class="row centered-contented">
-    <div class="col-6">
-      <img src="{{ url_for('static', filename='images/' + item.imagel1)}}" alt="{{ item.name}}" class="img-fluid learn_img">
-    </div>
-    <div class="col-6">
-      <img src="{{ url_for('static', filename='images/' + item.imagel2)}}" alt="{{ item.name}}" class="img-fluid learn_img">
+    <div class="col-12">
+      <img src="{{ url_for('static', filename='images/' + item.imagel)}}" alt="{{ item.name}}" class="img-fluid learn_img">
     </div>
   </div>
-
+<br>
   <div class="row">
     <div class="button-group">
       <button class="start-button fbsb back" onclick="location.href='/view/{{ item.id }}'">BACK</button>
